@@ -68,8 +68,8 @@ onPullRequest-carina-demo ->
 
 <b> carina-demo contains jobs: onPullRequest-carina-demo-trigger and 
 onPullRequest-carina-demo</b> 
-</b>
-</b>
+</br>
+</br>
 
 #### How to Create fork via Github (Described in Config guide)
 #### How to Configure Webhook via GitHub (Described in Config guide)
