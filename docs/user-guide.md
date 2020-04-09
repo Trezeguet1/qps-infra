@@ -34,7 +34,7 @@
 4. Tap Build  ->
  <b>Pipeline RegisterOrganization is done </b> 
 
-## How to RegisterRepository
+### How to RegisterRepository
  Preconditions:
 
 Open my organization that was created e.g. jenkins/okamara
