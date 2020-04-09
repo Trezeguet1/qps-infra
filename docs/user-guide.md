@@ -70,10 +70,10 @@ onPullRequest-carina-demo ->
 onPullRequest-carina-demo</b> 
 
 
-### How to Create fork via Github (Described in Config guide)
-## How to Configure Webhook via GitHub (Described in Config guide)
-### How to Send Pull request via github (Described in Config guide)
-### How to Close/Restart Pull request via github (Described in Config guide)
+#### How to Create fork via Github (Described in Config guide)
+#### How to Configure Webhook via GitHub (Described in Config guide)
+#### How to Send Pull request via github (Described in Config guide)
+#### How to Close/Restart Pull request via github (Described in Config guide)
 
 ### How to Run Web-Demo-Test job
  Preconditions:
