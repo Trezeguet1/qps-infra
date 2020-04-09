@@ -16,16 +16,18 @@
 ### How to Update Jenkins credentials
  
 Steps:
-1.Open Jenkins
-2.Click on Credentials in the left menu
-3.Select "ghprbhook-token" and click on the link
-4.Click on Update in the left menu
-5.Enter Username e.g."username"
-6.Near Password click Change password
-7.Enter value of "Git Personal access token" that was generated before for this user
-8.Save changes
-9.Open Jenkins/Manage Jenkins/Configure System
-10.Scroll till "GitHub Pull Request Builder" -> Credentials are populated here
+
+1. Open Jenkins
+2. Click on Credentials in the left menu
+3. Select "ghprbhook-token" and click on the link
+4. Click on Update in the left menu
+5. Enter Username e.g."username"
+6. Near Password click Change password
+7. Enter value of "Git Personal access token" that was generated before for this user
+8. Save changes
+9. Open Jenkins/Manage Jenkins/Configure System
+10. Scroll till "GitHub Pull Request Builder" ->
+<b> Credentials are populated here </b>
 
 
 ### How to RegisterOrganization (described in User Guide)
