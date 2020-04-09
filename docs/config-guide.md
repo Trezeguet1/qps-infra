@@ -13,7 +13,7 @@
 5. Click "Generate token"
 6. Remember it or save
 
-### 1:Update Jenkins credentials
+### How to Update Jenkins credentials
  
 Steps:
 1.Open Jenkins
@@ -28,13 +28,13 @@ Steps:
 10.Scroll till "GitHub Pull Request Builder" -> Credentials are populated here
 
 
-### 2:RegisterOrganization (described in User Guide)
+### How to RegisterOrganization (described in User Guide)
 
 
-## 3:RegisterRepository (described in User Guide)
+## How to RegisterRepository (described in User Guide)
 
 
-### 4:Create fork via Github
+### How to Create fork via Github
  Preconditions:
 Github account is created for you
 
@@ -48,7 +48,7 @@ Github account is created for you
 
  <b> organization/carina-demo repository is created </b> 
 
-## 5:Configure Webhook via GitHub
+## How to Configure Webhook via GitHub
 Preconditions:
 
 Open https://github.com
@@ -66,7 +66,7 @@ Steps:
 9. Click "Add webhook" button -> 
 <b> Webhook is created </b>
   
-### 6:Send Pull request via github 
+### How to Send Pull request via github 
  Preconditions:
 Fork Repository if need it via Github
 Update ghprbhook Credentials in Jenkins
@@ -81,15 +81,7 @@ Steps:
 5. Verify that comment is set via Pull request ->
 <b> Pull Request is created </b>
 
-TBD:
-In Jenkins
-6. Verify that onPullRequest jobs are started 
-7. Verify that onPullRequest jobs are completed ->
-
- <b> The following jobs onPullRequest-carina-demo-trigger and 
-onPullRequest-carina-demo are run with Success </b> 
-
-### 7:Close/Restart Pull request via github
+### How to Close/Restart Pull request via github
  Preconditions:
  Sign in to Github
 Open the pull request in GitHub for your repository/project
@@ -142,10 +134,10 @@ cd ~/tools/qps-infra
 rm -rf ./jenkins/.groovy/grapes
 ./start.sh
 
-### 8:Run Web-Demo-Test job(described in User Guide)
-### 9:Run API-Demo-Test job(described in User Guide)
-### 10:Run nightly_regression job(described in User Guide)
-### 11: Run full_regression job(described in User Guide)
+### How to Run Web-Demo-Test job(described in User Guide)
+### How to Run API-Demo-Test job(described in User Guide)
+### How to Run nightly_regression job(described in User Guide)
+### How to  Run full_regression job(described in User Guide)
  
 
 
