@@ -1,145 +1,43 @@
 # QPS-Infra - Configuration Guide
+## Jenkins Setup
+
+### Register Organization
+* Open Jenkins->Management_Jobs folder.
+* Run "RegisterOrganization" providing your SCM (GitHub) organization name as folderName
+* -> New folder is created with default content
+
+### Register Repository
+* Open your organization folder
+* Run "RegisterRepository" pointing to your TestNG repository (use https://github.com/qaprosoft/carina-demo as default repo to scan)
+* -> Repository should be scanned and TestNG jobs created
+
+## onPullRequest Job/Event setup
+
+### Setup GitHub PullRequest plugin 
+* Open Jenkins -> Credentials
+* Update Username and Password for "ghprbhook-token" credentials
+
+### Trigger onPullRequest Job(s)
+* Go to your GitHub repository
+* Create new Pull Request
+* -> Verify in Jenkins that onPullRequest-repo,onPullRequest-repo-trigger jobs launched and succeed
+
+## onPush Job/Event setup
+
+### Setup GitHub WebHook
+* Go to your GitHub repository
+* Click "Settings" tab
+* Click "Webhooks" menu option
+* Click "Add webhook" button
+* Type http://your-jenkins-domain.com/jenkins/github-webhook/ into "Payload URL" field
+* Select application/json in "Content Type" field
+* Tick "Send me everything." option
+* Click "Add webhook" button
+
+### Trigger onPush Job(s)
+* -> After any push or merge into the master onPush-repo job is launched, suites scanned, TestNG jobs created
 
 
-### Easy to Use Jenkins
- Preconditions:
-
- Jenkins is installed and started
-<b> Generate "Git personal access token" </b>
-1. Sign in to github
-2. In Left menu select "Settings" from the list
-3. Select "Developer settings"
-4. Select "Personal access token"
-5. Click "Generate token"
-6. Remember it or save
-
-### How to Update Jenkins credentials
- 
-Steps:
-
-1. Open Jenkins
-2. Click on Credentials in the left menu
-3. Select "ghprbhook-token" and click on the link
-4. Click on Update in the left menu
-5. Enter Username e.g."username"
-6. Near Password click Change password
-7. Enter value of "Git Personal access token" that was generated before for this user
-8. Save changes
-9. Open Jenkins/Manage Jenkins/Configure System
-10. Scroll till "GitHub Pull Request Builder" ->
-<b> Credentials are populated here </b>
-
-
-### How to RegisterOrganization (described in User Guide)
-
-
-## How to RegisterRepository (described in User Guide)
-
-
-### How to Create fork via Github
- Preconditions:
-Github account is created for you
-
- Steps:  
-
-1. Sign in to Github with your user account https://github.com/
-2. Open My profile
-3. Go to qaprosoft/carina-demo
-4. Tap Fork
-5. Verify that organization/carina-demo repository is created -> 
-
- <b> organization/carina-demo repository is created </b> 
-
-## How to Configure Webhook via GitHub
-Preconditions:
-
-Open https://github.com
-
-Steps:  
-
-1. Sign in with your user account
-2. Open created before your repository e.g. organization/carina-demo 
-3. Open Settings
-4. Open Webhooks in menu
-5. Tap Add Webhook
-6. Enter Payload URL e.g. .../jenkins/ghprbhook/
-7. Select application/x-www-form-urlencoded in "Content Type" field
-8. Select "Let me select individual events" with "Issue comments" and "Pull requests enabled" option
-9. Click "Add webhook" button -> 
-<b> Webhook is created </b>
-  
-### How to Send Pull request via github 
- Preconditions:
-Fork Repository if need it via Github
-Update ghprbhook Credentials in Jenkins
-Open jenkins/configure
-
-Steps:
-
-1. In GitHub select "Your repository"/"project"/"Pull requests"
-2. Create a new Pull request
-3. Enter Comment to post e.g. “Comment”
-4. Tap “Comment to Issue”
-5. Verify that comment is set via Pull request ->
-<b> Pull Request is created </b>
-
-### How to Close/Restart Pull request via github
- Preconditions:
- Sign in to Github
-Open the pull request in GitHub for your repository/project
-
- Steps:
-
-1. Tap “Close pull request”
-2. Tap “Reopen pull request”
-3. Verify that onPullRequest jobs are started 
-4. Verify that onPullRequest jobs are completed ->
-
- <b> The following jobs onPullRequest-carina-demo-trigger and 
-onPullRequest-carina-demo are run with Success </b> 
-
-###  Workaround to run jobs without errors(.m2 folder)
- Preconditions:
-
-If onPullRequest-carina-demo and onPullRequest-carina-demo-trigger job run with errors like e.g.
-[ERROR] Could not create local repository at /var/jenkins_home/.m2/repository -> [Help 1]
-[ERROR]
-[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
-[ERROR] Re-run Maven using the -X switch to enable full debug logging.
-[ERROR]
-
- Steps:
-
-1. Run the following commands via terminal:
-sudo chown -R ubuntu:ubuntu ~/.m2
-sudo chmod -R a+rws ~/.m2
-./stop.sh
-docker-compose rm -fv
-./start.sh
-
-2. Stop/Resend pull request via github and verify that jobs onPullRequest-carina-demo and onPullRequest-carina-demo-trigger run without errors
- 
-### Workaround for "Error grabbing Grapes"(.m2) during create organization or start jobs
- Preconditions:
-
-If onPullRequest-carina-demo and onPullRequest-carina-demo-trigger job run with errors like e.g.
-[ERROR] General error during conversion: Error grabbing Grapes -- [download failed: org.beanshell#bsh;2.0b4!bsh.jar]
-
- Steps:
-
-1. remove completely $HOME/.m2/repository and QPS_HONE/jenkins/.groovy/grapes content to allow jenkins to redownload everything from scratch
-
-Run the following commands via terminal:
-./stop.sh
-sudo rm -rf ~/.m2/repository
-cd ~/tools/qps-infra
-rm -rf ./jenkins/.groovy/grapes
-./start.sh
-
-### How to Run Web-Demo-Test job(described in User Guide)
-### How to Run API-Demo-Test job(described in User Guide)
-### How to Run nightly_regression job(described in User Guide)
-### How to  Run full_regression job(described in User Guide)
  
 
 
