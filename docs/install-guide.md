@@ -1,4 +1,4 @@
-# QPS-Infra - Getting started
+# Installation Guide
 ## Software prerequisites
 * Docker requires a user with uid=1000 and gid=1000 for simple volumes sharing, etc.
   Note: to verify the current user uid/gid, execute
