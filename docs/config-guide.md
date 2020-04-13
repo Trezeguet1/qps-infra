@@ -1,4 +1,4 @@
-# QPS-Infra - Configuration Guide
+# Configuration Guide
 ## Jenkins Setup
 
 ### Register Organization
